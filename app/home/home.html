@@ -1,0 +1,10 @@
+<div class="row" style="margin-top: 20px;">
+    <div class="text-center" ng-show="loading"><div style="font-size: 2em;"><i class="fa fa-circle-o-notch fa-spin fa-5x"></i></div></div>
+    <div class="col-sm-3" ng-repeat="movie in movies">
+        <a class="afficheContainer" href="#!/movie/{{ movie.qwd }}">
+            <div class="text-center">
+                <img class="affiche" src="{{ movie.poster }}" alt="Affiche de {{ movie.label }}" title="Affiche de {{ movie.label }}" />
+            </div>
+        </a>
+    </div>
+</div>

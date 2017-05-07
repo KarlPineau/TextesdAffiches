@@ -1,0 +1,104 @@
+<div class="row row-title">
+    <div class="col-sm-12 text-center">
+        <div ng-if="search">
+            <a href="#!/search/{{ typeSearch }}/{{ search }}" class="a-header">Retour à la recherche</a>
+        </div>
+        <h2>
+            <a ng-if="movie.url" href="{{ movie.url }}" target="_blank">{{ movie.label }}</a>
+            <span ng-if="!movie.url">{{ movie.label }}</span>
+        </h2>
+    </div>
+</div>
+<div class="row">
+    <div class="text-center" ng-show="loading"><div style="font-size: 2em;"><i class="fa fa-circle-o-notch fa-spin fa-5x"></i></div></div>
+    <div class="col-sm-5 col-xs-12">
+        <div class="list-group">
+            <div class="list-group-item">
+                <div class="text-center">
+                    <img class="affiche" src="{{ movie.poster }}" alt="Affiche de {{ movie.label }}" title="Affiche de {{ movie.label }}" />
+                </div>
+            </div>
+            <div ng-if="movie.WParticle" class="list-group-item">
+                {{ movie.WPintro }}<br /><a href="https://fr.wikipedia.org/wiki/{{ movie.WParticle }}" target="_blank">Lire la suite</a>
+            </div>
+            <dl ng-if="(movie.director).length > 0" class="list-group-item dl-horizontal">
+                <dt>Réalisateur</dt>
+                <dd class="">
+                    <span ng-repeat="director in movie.director"><span ng-if="$index > 0">, </span><span ng-if="!director.qwd">{{ director.label }}</span><span ng-if="director.qwd"><a href="#!/items/movies/director/{{ director.qwd }}">{{ director.label }}</a></span></span>
+                </dd>
+            </dl>
+            <dl ng-if="(movie.starring).length > 0" class="list-group-item dl-horizontal">
+                <dt>Distribution</dt>
+                <dd class="">
+                    <span ng-repeat="actor in movie.starring"><span ng-if="$index > 0">, </span><span ng-if="!actor.qwd">{{ actor.label }}</span><span ng-if="actor.qwd"><a href="#!/items/movies/starring/{{ actor.qwd }}">{{ actor.label }}</a></span></span>
+                </dd>
+            </dl>
+            <dl ng-if="movie.date" class="list-group-item dl-horizontal">
+                <dt>Date de réalisation</dt>
+                <dd class="">{{ movie.date }}</dd>
+            </dl>
+            <dl ng-if="(movie.language).length > 0" class="list-group-item dl-horizontal">
+                <dt>Langue</dt>
+                <dd class="">
+                    <span ng-repeat="language in movie.language"><span ng-if="$index > 0">, </span><span ng-if="!language.qwd">{{ language.label }}</span><span ng-if="language.qwd"><a href="#!/items/movies/language/{{ language.qwd }}">{{ language.label }}</a></span></span>
+                </dd>
+            </dl>
+            <dl ng-if="(movie.country).length > 0" class="list-group-item dl-horizontal">
+                <dt>Pays</dt>
+                <dd class="">
+                    <span ng-repeat="country in movie.country"><span ng-if="$index > 0">, </span><span ng-if="!country.qwd">{{ country.label }}</span><span ng-if="country.qwd"><a href="#!/items/movies/country/{{ country.qwd }}">{{ country.label }}</a></span></span>
+                </dd>
+            </dl>
+            <dl ng-if="(movie.genre).length > 0" class="list-group-item dl-horizontal">
+                <dt>Genre</dt>
+                <dd class="">
+                    <span ng-repeat="genre in movie.genre"><span ng-if="$index > 0">, </span><span ng-if="!genre.qwd">{{ genre.label }}</span><span ng-if="genre.qwd"><a href="#!/items/movies/genre/{{ genre.qwd }}">{{ genre.label }}</a></span></span>
+                </dd>
+            </dl>
+            <div ng-if="movie.url" class="list-group-item">
+                <a href="{{ movie.url }}" target="_blank">Visiter le site web</a>
+            </div>
+            <div class="list-group-item text-center">
+                <span ng-if="movie.imdb"><a href="http://www.imdb.com/title/{{ movie.imdb }}" target="_blank">IMDb</a> -</span>
+                <span ng-if="movie.WParticle"><a href="https://fr.wikipedia.org/wiki/{{ movie.WParticle }}" target="_blank">Wikipédia</a> -</span>
+                <span ng-if="movie.qwd"><a href="https://www.wikidata.org/wiki/{{ movie.qwd }}" target="_blank">Wikidata</a></span>
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-7 col-xs-12" style="">
+        <h3 class="text-center">Les ouvrages</h3>
+        <hr />
+        <div ng-repeat="book in movie.books">
+            <div class="row">
+                <div class="col-sm-5" style="padding-right: 2px;">
+                    <div class="text-right">
+                        <img class="affiche" src="{{ book.thumbnail }}" alt="Couverture de {{ book.title }}" title="Couverture de {{ book.title }}" />
+                    </div>
+                </div>
+                <div class="col-sm-7" style="padding-left: 0px;">
+                    <div class="list-group">
+                        <div class="list-group-item text-center">
+                            <h4>{{ book.title }}</h4>
+                        </div>
+                        <dl ng-if="(book.author).length > 0" class="list-group-item dl-horizontal">
+                            <dt>Auteur</dt>
+                            <dd>
+                                <span ng-repeat="author in book.author"><span ng-if="$index > 0">, </span><span ng-if="!author.qwd">{{ author.label }}</span><span ng-if="author.qwd"><a href="#!/items/books/author/{{ author.qwd }}">{{ author.label }}</a></span></span>
+                            </dd>
+                        </dl>
+                        <dl ng-if="book.publication" class="list-group-item dl-horizontal">
+                            <dt>Date de publication</dt>
+                            <dd>{{ book.publication }}</dd>
+                        </dl>
+                        <div class="list-group-item" style="padding: 0px;">
+                            <div class="btn-group btn-group-vertical"  style="width: 100%;">
+                                <a href="#!/book/{{ book.qwd }}" class="btn btn-block btn-primary" style="margin: 0px; border-radius: 0px;">Fiche détaillée</a>
+                                <a ng-if="book.thumbnail" href="{{ book.thumbnail.replace('.highres', '') }}" class="btn btn-block btn-primary" style="margin: 0px; border-radius: 0px;" target="_blank">Lire sur Gallica</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

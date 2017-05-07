@@ -1,0 +1,24 @@
+<div class="row row-title">
+    <div class="col-sm-12 text-center">
+        <h2>
+            {{ value }}
+        </h2>
+    </div>
+</div>
+<div class="row">
+    <div class="text-center" ng-show="loading"><div style="font-size: 2em;"><i class="fa fa-circle-o-notch fa-spin fa-5x"></i></div></div>
+    <div ng-if="typeCategory == 'movies'" class="col-sm-3" ng-repeat="movie in items">
+        <a class="afficheContainer" href="#!/movie/{{ movie.qwd }}">
+            <div class="text-center">
+                <img class="affiche" src="{{ movie.poster }}" alt="Affiche de {{ movie.label }}" title="Affiche de {{ movie.label }}" />
+            </div>
+        </a>
+    </div>
+    <div ng-if="typeCategory == 'books'" class="col-sm-3" ng-repeat="book in items">
+        <a class="afficheContainer" href="#!/book/{{ book.qwd }}">
+            <div class="text-center">
+                <img class="affiche" src="{{ book.thumbnail }}" alt="Couverture de {{ book.title }}" title="Couverture de {{ book.title }}" />
+            </div>
+        </a>
+    </div>
+</div>

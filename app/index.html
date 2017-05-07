@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html lang="fr" ng-app="tdaApp" class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html lang="fr" ng-app="tdaApp" class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html lang="fr" ng-app="tdaApp" class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html lang="fr" ng-app="tdaApp" class="no-js"> <!--<![endif]-->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="index,follow" />
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <meta name="generator" content="HTML5, CSS3" />
+    <meta property="og:site_name" content="" />
+    <meta property="og:description" content="" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="" />
+    <meta property="og:title" content="" />
+    <meta property="og:image" content="" />
+    <meta property="twitter:card" content="summary" />
+    <meta property="twitter:url" content="" />
+    <meta property="twitter:title" content="" />
+    <meta property="twitter:description" content="" />
+    <meta property="twitter:image" content="" />
+    <meta property="twitter:site" content="" />
+    <meta property="twitter:creator" content="" />
+
+    <title>Textes d'Affiches</title>
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="web/css/main.css" type="text/css" />
+    <link rel="stylesheet" href="web/font-awesome/css/font-awesome.min.css" type="text/css" />
+
+    <!-- Le fav and touch icons -->
+    <link rel="shortcut icon" href="web/images/logo.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="web/images/logo.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="web/images/logo.png">
+    <link rel="apple-touch-icon-precomposed" href="web/images/logo.png">
+
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular-route.min.js"></script>
+
+</head>
+
+<body>
+    <header class="navbar navbar-inverse navbar-fixed-top" role="navigation" style="">
+        <nav class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <div class="navbar-brand" id="home-logo">
+                    <h1 style="display: inline; margin-left: 20px;"><a href="#!/">Textes d'Affiches</a></h1></div>
+            </div>
+            <div class="collapse navbar-collapse">
+                <form class="navbar-form navbar-right">
+                    <div id="divSearchBar" ng-controller="SearchCtrl">
+                        <div class="input-group">
+                            <input ng-model="searchInput" id="searchInput" type="search" class="form-control" size="50" placeholder="Search for..." />
+                            <span class="input-group-btn">
+                                <a href="#!/search/movies/{{ searchInput }}" class="btn btn-default" type="button" title="Recherche par film"><i class="fa fa-film"></i></a>
+                                <a href="#!/search/books/{{ searchInput }}" class="btn btn-default" type="button" title="Recherche par ouvrage"><i class="fa fa-book" aria-hidden="true"></i></a>
+                              </span>
+                        </div>
+                    </div>
+                </form>
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="#!/categories">Liste des genres</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+    <section class="container-fluid" style="margin-top: 50px; margin-bottom: 50px;">
+        <div class="row">
+            <section class="col-sm-12" id="sectionContent">
+                <div ng-view></div>
+            </section>
+        </div>
+    </section>
+    <footer class="navbar-inverse navbar-fixed-bottom">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-xs-12">
+                    <div class="text-center">
+                        <a href="#!/about" class="text-muted">À propos</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+    <script type="text/javascript" src="app.js"></script>
+    <script type="text/javascript" src="home/home.js"></script>
+    <script type="text/javascript" src="search/search.js"></script>
+    <script type="text/javascript" src="viewMovie/viewMovie.js"></script>
+    <script type="text/javascript" src="viewBook/viewBook.js"></script>
+    <script type="text/javascript" src="thesaurus/categories/categories.js"></script>
+    <script type="text/javascript" src="thesaurus/category/category.js"></script>
+    <script type="text/javascript" src="thesaurus/items/items.js"></script>
+</body>
+</html>
