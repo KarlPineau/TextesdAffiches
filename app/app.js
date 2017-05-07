@@ -1,4 +1,4 @@
-var app = angular.module("tdaApp", ["ngRoute"]);
+var app = angular.module("tdaApp", ["ngRoute", "angucomplete"]);
 app.config(function($routeProvider) {
     $routeProvider
         .when("/", {

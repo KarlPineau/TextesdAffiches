@@ -32,6 +32,7 @@
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <link rel="stylesheet" href="web/css/main.css" type="text/css" />
     <link rel="stylesheet" href="web/font-awesome/css/font-awesome.min.css" type="text/css" />
+    <link rel="stylesheet" href="web/angucomplete/angucomplete.css" type="text/css" />
 
     <!-- Le fav and touch icons -->
     <link rel="shortcut icon" href="web/images/logo.png">
@@ -58,20 +59,20 @@
                     <h1 style="display: inline; margin-left: 20px;"><a href="#!/">Textes d'Affiches</a></h1></div>
             </div>
             <div class="collapse navbar-collapse">
-                <form class="navbar-form navbar-right">
-                    <div id="divSearchBar" ng-controller="SearchCtrl">
-                        <div class="input-group">
-                            <input ng-model="searchInput" id="searchInput" type="search" class="form-control" size="50" placeholder="Search for..." />
-                            <span class="input-group-btn">
-                                <a href="#!/search/movies/{{ searchInput }}" class="btn btn-default" type="button" title="Recherche par film"><i class="fa fa-film"></i></a>
-                                <a href="#!/search/books/{{ searchInput }}" class="btn btn-default" type="button" title="Recherche par ouvrage"><i class="fa fa-book" aria-hidden="true"></i></a>
-                              </span>
-                        </div>
-                    </div>
-                </form>
                 <ul class="nav navbar-nav navbar-right">
-                    <li><a href="#!/categories">Liste des genres</a></li>
+                    <li><a href="#!/categories">Catégories</a></li>
                 </ul>
+                <form class="navbar-form navbar-right">
+                    <angucomplete id="searchInput"
+                                  placeholder="Search for..."
+                                  pause="100"
+                                  selectedobject="searchInput"
+                                  url="http://zone47.com/tda/api/autocompletion.php?keyword="
+                                  titlefield="label"
+                                  imageuri="img"
+                                  inputclass="form-control"
+                                  minlength="2" />
+                </form>
             </div>
         </nav>
     </header>
@@ -96,6 +97,7 @@
 
     <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="web/angucomplete/angucomplete.js"></script>
 
     <script type="text/javascript" src="app.js"></script>
     <script type="text/javascript" src="home/home.js"></script>
