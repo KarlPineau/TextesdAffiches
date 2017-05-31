@@ -8,6 +8,12 @@ app.controller("ItemsCtrl", function ($routeParams, $scope, $http) {
         $scope.items = response.data;
         $scope.value = $routeParams.value;
         $scope.typeCategory = $routeParams.typeCategory;
+
+        strictQwd = $routeParams.value.replace('Q', '');
+        $http.get("http://zone47.com/tda/api/?label="+strictQwd).then(function (response) {
+            $scope.valueLabel = response.data["entity"]["label"];
+        });
+
         $scope.loading = false;
     });
 });

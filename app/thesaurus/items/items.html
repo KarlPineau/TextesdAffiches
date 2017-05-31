@@ -1,12 +1,12 @@
 <div class="row row-title">
     <div class="col-sm-12 text-center">
         <h2>
-            {{ value }}
+            {{ valueLabel }}
         </h2>
     </div>
 </div>
 <div class="row">
-    <div class="text-center" ng-show="loading"><div style="font-size: 2em;"><i class="fa fa-circle-o-notch fa-spin fa-5x"></i></div></div>
+    <div class="text-center" ng-show="loading"><div style="margin-top: 10%; font-size: 2em;"><i class="fa fa-circle-o-notch fa-spin fa-5x"></i></div></div>
     <div ng-if="typeCategory == 'movies'" class="col-sm-3" ng-repeat="movie in items">
         <a class="afficheContainer" href="#!/movie/{{ movie.qwd }}">
             <div class="text-center">
